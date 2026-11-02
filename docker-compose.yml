@@ -1,0 +1,62 @@
+name: order-management
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: order-management-api
+    restart: unless-stopped
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    ports:
+      - "8080:8080"
+
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-dev}
+
+      DB_URL: ${DB_URL}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+
+      JWT_KEY: ${JWT_KEY}
+      JWT_EXPIRATION_TIME: ${JWT_EXPIRATION_TIME}
+
+    networks:
+      - backend-network
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: order-management-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${POSTGRES_DB}
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+    networks:
+      - backend-network
+
+networks:
+  backend-network:
+    driver: bridge
+
+volumes:
+  postgres-data:

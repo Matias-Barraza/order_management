@@ -1,0 +1,463 @@
+{
+  "info": {
+    "_postman_id": "886b2cb3-6250-43eb-a5e5-213bf7148d49",
+    "name": "Order Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "31252421",
+    "description": "Postman collection for the local Order Management API. Run the Login request first; its test script stores the returned JWT in the collection variable \"token\" for the protected requests."
+  },
+  "item": [
+    {
+      "name": "Units",
+      "item": [
+        {
+          "name": "findAll",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}units"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "findById",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}units/KG"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\":\"DOC\",\r\n    \"description\":\"Docena\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}units"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\":\"DOC\",\r\n    \"description\":\"Docenas\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}units/DOC"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{local}}units/DOC"
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "search",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}products"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "findById",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}products/1"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"code\": \"PROD-004\",\r\n    \"name\": \"sugar\",\r\n    \"unitPrice\": 1500.00,\r\n    \"unitId\":\"KG\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}products"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"code\": \"PROD-004\",\n    \"name\": \"Azucar\",\n    \"unitPrice\": 1000.0,\n    \"unitId\": \"KG\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}products/4"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{local}}products/4"
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Clients",
+      "item": [
+        {
+          "name": "search",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}clients"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "findById",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}clients/1"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\":\"Camila\",\r\n    \"lastName\":\"Navarro\",\r\n    \"documentType\":\"DNI\",\r\n    \"documentNumber\":\"12345678\",\r\n    \"phoneNumber\":\"1123456789\",\r\n    \"email\": \"cam.nav@email.com\",\r\n    \"address\":\r\n    {\r\n        \"street\":\"Siempre alegre\",\r\n        \"number\":\"67890\",\r\n        \"city\":\"Moreno\",\r\n        \"province\":\"Buenos Aires\",\r\n        \"postalCode\": \"1744\",\r\n        \"country\":\"Argentina\"\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}clients"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"Camila\",\n    \"lastName\": \"Navarro\",\n    \"documentType\": \"DNI\",\n    \"documentNumber\": \"12345678\",\n    \"phoneNumber\": \"1123456789\",\n    \"email\": \"camila.navarro@email.com\",\n    \"address\": {\n        \"street\": \"Siempre alegre\",\n        \"number\": \"67890\",\n        \"city\": \"Moreno\",\n        \"province\": \"Buenos Aires\",\n        \"postalCode\": \"1744\",\n        \"country\": \"Argentina\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}clients/4"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{local}}clients/4"
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "search",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}orders?search=1001&page=0&size=5"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "findById",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}orders/1"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"clientId\": 1,\r\n    \"billingDocumentTypeCode\": \"01\",\r\n    \"serie\": \"F001\",\r\n    \"correlative\": 1003,\r\n    \"details\": [\r\n        {\r\n            \"productId\": 1,\r\n            \"quantity\": 5\r\n        },\r\n        {\r\n            \"productId\": 3,\r\n            \"quantity\": 5\r\n        }\r\n    ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}orders"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"clientId\": 1,\r\n    \"billingDocumentTypeCode\": \"01\",\r\n    \"serie\": \"F001\",\r\n    \"correlative\": 1004,\r\n    \"details\": [\r\n        {\r\n            \"productId\": 1,\r\n            \"quantity\": 10\r\n        },\r\n        {\r\n            \"productId\": 3,\r\n            \"quantity\": 10\r\n        }\r\n    ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}orders/3"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{local}}orders/3"
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "search",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}users"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "findById",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}users/1"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"email\": \"matbarr@email.com\",\r\n   \"password\": \"demo1234\",\r\n   \"active\": true,\r\n   \"roles\": [\"ADMIN\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}users"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"matbar@email.com\",\n    \"password\": \"pass1234\",\n    \"active\": false,\n    \"roles\": [\n        \"ADMIN\",\n        \"USER\"\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}users/5"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{local}}users/5"
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\":\"admin@email.com\",\r\n    \"password\":\"demo1234\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{local}}auth/login"
+        },
+        "auth": {
+          "type": "noauth"
+        }
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (pm.response.code === 200) {",
+              "    const responseBody = pm.response.json();",
+              "    pm.collectionVariables.set(\"token\", responseBody.token);",
+              "    pm.test(\"Login response contains a JWT\", function () {",
+              "        pm.expect(responseBody.token).to.be.a(\"string\").and.not.empty;",
+              "    });",
+              "}"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "local",
+      "value": "http://localhost:8080/api/v1/",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  }
+}
